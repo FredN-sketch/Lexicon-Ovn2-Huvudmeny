@@ -8,7 +8,7 @@ namespace Lexicon_Ovn2_Huvudmeny
 {
     internal class Cinema
     {
-        public static void Tickets(int numberOfPeople)
+        public static void Tickets(uint numberOfPeople)
         {
             int juniorPrice = 80;
             int seniorPrice = 90;
@@ -17,8 +17,8 @@ namespace Lexicon_Ovn2_Huvudmeny
             {
                 string priceLevel;
                 int ticketPrice;
-                Console.WriteLine("Ange personens ålder: ");
-                int age = int.Parse(Console.ReadLine());
+                Console.Write("Ange personens ");
+                uint age = Util.AskForUInt("ålder"); //= int.Parse(Console.ReadLine());
                 if (age < 20)
                 {
                     priceLevel = "Ungdomspris";
@@ -43,7 +43,7 @@ namespace Lexicon_Ovn2_Huvudmeny
                 for (int i = 1; i < numberOfPeople + 1; i++)
                 {
                     Console.WriteLine($"Ange ålder hos person nr {i}");
-                    int age = int.Parse(Console.ReadLine());
+                    uint age = Util.AskForUInt("ålder");//int age = int.Parse(Console.ReadLine());
                     if (age < 20)
                         sumTicketPrice += juniorPrice;
                     else if (age > 64)

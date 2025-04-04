@@ -40,8 +40,9 @@ namespace Lexicon_Ovn2_Huvudmeny
                         }
                         else
                         {
-                            Console.WriteLine("Hur många personer i sällskapet? ");
-                            int numberOfPeople = int.Parse(Console.ReadLine());
+                            //     Console.WriteLine("Hur många personer i sällskapet? ");
+                            Console.WriteLine("Ange antal personer i sällskapet");
+                            uint numberOfPeople = Util.AskForUInt("antal");//int numberOfPeople = int.Parse(Console.ReadLine());
                             Cinema.Tickets(numberOfPeople);
                         }                      
                         PressAnyKey();
@@ -88,6 +89,6 @@ namespace Lexicon_Ovn2_Huvudmeny
             Console.Write(Environment.NewLine);
             Console.WriteLine("Tryck på valfri tangent för att återgå till huvudmenyn.");
             Console.ReadLine();
-        }
+        }       
     }
 }
