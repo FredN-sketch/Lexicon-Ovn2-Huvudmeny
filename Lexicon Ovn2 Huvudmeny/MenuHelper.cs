@@ -11,8 +11,8 @@ namespace Lexicon_Ovn2_Huvudmeny
         public static void PrintMenu()
         {
             Console.Clear();
-            Console.WriteLine("   Huvudmeny ");
-            Console.WriteLine("=====================");
+            Console.WriteLine("Huvudmeny");
+            Console.WriteLine("=========");
             Console.WriteLine("1. Köp biobiljetter");
             Console.WriteLine("2. Upprepa tio gånger");
             Console.WriteLine("3. Det tredje ordet");
@@ -26,7 +26,7 @@ namespace Lexicon_Ovn2_Huvudmeny
             string userInput = Console.ReadLine();
             switch (userInput)
             {
-                case "1": //1. Boka biobesök
+                case "1": //1. Köp biobiljetter
                     {
                         Console.Clear ();   
                         Console.WriteLine("Köp biobiljetter");
@@ -79,7 +79,7 @@ namespace Lexicon_Ovn2_Huvudmeny
 
                 default:
                     Console.WriteLine("Ogiltigt val");
-                    Console.Write(Environment.NewLine);
+                    PressAnyKey();           
                     return true;
             }
         }
