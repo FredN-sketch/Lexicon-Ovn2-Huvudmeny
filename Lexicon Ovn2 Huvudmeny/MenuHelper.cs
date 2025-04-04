@@ -10,12 +10,16 @@ namespace Lexicon_Ovn2_Huvudmeny
     {
         public static void PrintMenu()
         {
-            Console.WriteLine("Huvudmeny");
-            Console.WriteLine("=========");
-            Console.WriteLine("1. Boka biobesök");
+            Console.Clear();
+            Console.WriteLine("   Huvudmeny ");
+            Console.WriteLine("=====================");
+            Console.WriteLine("1. Köp biobiljetter");
             Console.WriteLine("2. Upprepa tio gånger");
             Console.WriteLine("3. Det tredje ordet");
             Console.WriteLine("0. Avsluta");
+            Console.Write(Environment.NewLine);
+            Console.WriteLine("Skriv in siffran till vänster om varje menyval för att köra resp funktion");
+            Console.Write(Environment.NewLine);
         }
         public static bool MainMenu()
         {
@@ -24,10 +28,11 @@ namespace Lexicon_Ovn2_Huvudmeny
             {
                 case "1": //1. Boka biobesök
                     {
-                        Console.WriteLine("Boka biobesök");
-                        Console.WriteLine("=============");
-                        Console.WriteLine("1. För en person");
-                        Console.WriteLine("2. För ett sällskap");
+                        Console.Clear ();   
+                        Console.WriteLine("Köp biobiljetter");
+                        Console.WriteLine("================");
+                        Console.WriteLine("1. Till en person");
+                        Console.WriteLine("2. Till ett sällskap");
                         string cinemaChoice = Console.ReadLine();
                         if (cinemaChoice == "1")
                         {
@@ -38,23 +43,24 @@ namespace Lexicon_Ovn2_Huvudmeny
                             Console.WriteLine("Hur många personer i sällskapet? ");
                             int numberOfPeople = int.Parse(Console.ReadLine());
                             CinemaTickets(numberOfPeople);
-                        }
-                        Console.Write(Environment.NewLine);
+                        }                      
+                        PressAnyKey();
                         return true;
                     }
                 case "2": //2. Upprepa tio gånger
                     {
-                        Console.WriteLine("2. Upprepa tio gånger");
+                        Console.Write(Environment.NewLine);                        
                         Console.Write("Ange den text som skall upprepas: ");
                         string input = Console.ReadLine();
+                        Console.Write(Environment.NewLine);
                         for (int i = 0; i < 10; i++)
                         {
                             Console.Write($"{i + 1}.{input}");
                             if (i < 9)
                                 Console.Write(", ");
                         }
-                        Console.Write(Environment.NewLine);
-                        Console.Write(Environment.NewLine);
+                        Console.Write(Environment.NewLine);                       
+                        PressAnyKey();
                         return true;
                     }
                 case "3": //3. Det tredje ordet
@@ -62,8 +68,8 @@ namespace Lexicon_Ovn2_Huvudmeny
                         Console.Write("Ange en mening som innehåller minst tre ord: ");
                         string[] input = Console.ReadLine().Split();
                         string thirdWord = input[2];
-                        Console.WriteLine($"Det tredje ordet i meningen är: {thirdWord}");
-                        Console.Write(Environment.NewLine);
+                        Console.WriteLine($"Det tredje ordet i meningen är: {thirdWord}");                        
+                        PressAnyKey();
                         return true;
                     }
                 case "0":  //0. Avsluta
@@ -120,8 +126,14 @@ namespace Lexicon_Ovn2_Huvudmeny
                     else
                         sumTicketPrice += standardPrice;
                 }
-                Console.WriteLine($"Antal personer: {numberOfPeople} Total kostnad: {sumTicketPrice} kr");
+                Console.WriteLine($"Antal personer: {numberOfPeople} Total kostnad: {sumTicketPrice} kr");               
             }
+        }
+        private static void PressAnyKey()
+        {
+            Console.Write(Environment.NewLine);
+            Console.WriteLine("Tryck på valfri tangent för att återgå till huvudmenyn.");
+            Console.ReadLine();
         }
     }
 }
