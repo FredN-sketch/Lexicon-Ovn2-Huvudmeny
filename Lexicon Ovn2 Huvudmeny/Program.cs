@@ -36,7 +36,8 @@ namespace Lexicon_Ovn2_Huvudmeny
                             Console.WriteLine("Hur många personer i sällskapet? ");
                             int numberOfPeople = int.Parse(Console.ReadLine());
                             CinemaTickets(numberOfPeople);
-                        }                           
+                        }
+                        Console.Write(Environment.NewLine);
                         return true;                       
                     }
                 case "2": //2. Upprepa tio gånger
@@ -51,6 +52,7 @@ namespace Lexicon_Ovn2_Huvudmeny
                                 Console.Write(", ");
                         }
                         Console.Write(Environment.NewLine);
+                        Console.Write(Environment.NewLine);
                         return true;
                     }
                 case "3": //3. Det tredje ordet
@@ -59,6 +61,7 @@ namespace Lexicon_Ovn2_Huvudmeny
                         string[] input = Console.ReadLine().Split();
                         string thirdWord = input[2];
                         Console.WriteLine($"Det tredje ordet i meningen är: {thirdWord}");
+                        Console.Write(Environment.NewLine);
                         return true;
                     }
                 case "0":  //0. Avsluta
@@ -68,6 +71,7 @@ namespace Lexicon_Ovn2_Huvudmeny
 
                 default:
                     Console.WriteLine("Ogiltigt val");
+                    Console.Write(Environment.NewLine);
                     return true;
             }
         }
