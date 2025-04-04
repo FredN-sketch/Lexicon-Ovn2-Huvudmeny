@@ -10,14 +10,6 @@
                 MenuHelper.PrintMenu();
                 showMenu = MenuHelper.MainMenu();
             }
-        }
-
-        
-        //public enum TicketPriceLevel
-        //{ 
-        //    Ungdomspris,
-        //    Standardpris,
-        //    Pensionärspris
-        //}
+        }          
     }
 }

@@ -36,13 +36,13 @@ namespace Lexicon_Ovn2_Huvudmeny
                         string cinemaChoice = Console.ReadLine();
                         if (cinemaChoice == "1")
                         {
-                            CinemaTickets(1);
+                            Cinema.Tickets(1);
                         }
                         else
                         {
                             Console.WriteLine("Hur många personer i sällskapet? ");
                             int numberOfPeople = int.Parse(Console.ReadLine());
-                            CinemaTickets(numberOfPeople);
+                            Cinema.Tickets(numberOfPeople);
                         }                      
                         PressAnyKey();
                         return true;
@@ -81,52 +81,6 @@ namespace Lexicon_Ovn2_Huvudmeny
                     Console.WriteLine("Ogiltigt val");
                     PressAnyKey();           
                     return true;
-            }
-        }
-        private static void CinemaTickets(int numberOfPeople)
-        {
-            int juniorPrice = 80;
-            int seniorPrice = 90;
-            int standardPrice = 120;
-            if (numberOfPeople == 1)
-            {
-                string priceLevel;
-                int ticketPrice;
-                Console.WriteLine("Ange personens ålder: ");
-                int age = int.Parse(Console.ReadLine());
-                if (age < 20)
-                {
-                    priceLevel = "Ungdomspris";
-                    ticketPrice = juniorPrice;
-                }
-                else if (age > 64)
-                {
-                    priceLevel = "Pensionärspris";
-                    ticketPrice = seniorPrice;
-                }
-
-                else
-                {
-                    priceLevel = "Standardpris";
-                    ticketPrice = standardPrice;
-                }
-                Console.WriteLine($"{priceLevel}: {ticketPrice} kr");
-            }
-            else
-            {
-                int sumTicketPrice = 0;
-                for (int i = 1; i < numberOfPeople + 1; i++)
-                {
-                    Console.WriteLine($"Ange ålder hos person nr {i}");
-                    int age = int.Parse(Console.ReadLine());
-                    if (age < 20)
-                        sumTicketPrice += juniorPrice;
-                    else if (age > 64)
-                        sumTicketPrice += seniorPrice;
-                    else
-                        sumTicketPrice += standardPrice;
-                }
-                Console.WriteLine($"Antal personer: {numberOfPeople} Total kostnad: {sumTicketPrice} kr");               
             }
         }
         private static void PressAnyKey()
