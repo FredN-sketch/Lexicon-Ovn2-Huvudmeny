@@ -44,7 +44,7 @@ namespace Lexicon_Ovn2_Huvudmeny
                 }
                 else
                 {
-                    Console.WriteLine($"Ange {prompt} (med siffror)");
+                    Console.WriteLine($"Ange ett giltigt tal (med siffror)");
                 }
 
             } while (true);

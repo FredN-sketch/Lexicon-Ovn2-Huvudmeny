@@ -28,50 +28,52 @@ namespace Lexicon_Ovn2_Huvudmeny
             {
                 case "1": //1. Köp biobiljetter
                     {
-                        Console.Clear ();   
+                        Console.Clear();
                         Console.WriteLine("Köp biobiljetter");
                         Console.WriteLine("================");
                         Console.WriteLine("1. Till en person");
                         Console.WriteLine("2. Till ett sällskap");
+
                         string cinemaChoice = Console.ReadLine();
+                        Console.Write(Environment.NewLine);
                         if (cinemaChoice == "1")
-                        {
-                            Cinema.Tickets(1);
+                        {                                       // 1.1 köp biljett till en person
+                            Cinema.Tickets(1);                  
                         }
                         else
-                        {
-                            //     Console.WriteLine("Hur många personer i sällskapet? ");
+                        {                                       // 1.2 köp biljetter till ett sällskap
+                                                                
                             Console.WriteLine("Ange antal personer i sällskapet");
-                            uint numberOfPeople = Util.AskForUInt("antal");//int numberOfPeople = int.Parse(Console.ReadLine());
-                            Cinema.Tickets(numberOfPeople);
-                        }                      
-                        PressAnyKey();
-                        return true;
+                            uint numberOfPeople = Util.AskForUInt("antal");
+                            Cinema.Tickets(numberOfPeople);     
+                        }
+                        PressAnyKey();                          // tryck på valfri tangent för att återgå till huvudmenyn
+                        return true;                            // return kan användas istf break i case-sats i en metod
                     }
-                case "2": //2. Upprepa tio gånger
+                case "2":                                       // 2. Upprepa tio gånger
                     {
-                        Console.Write(Environment.NewLine);                        
+                        Console.Write(Environment.NewLine);
                         Console.WriteLine("Ange den text som skall upprepas.");
-                        string input = Util.AskForString("text");//Console.ReadLine();
+                        string input = Util.AskForString("text");
                         Console.Write(Environment.NewLine);
                         for (int i = 0; i < 10; i++)
                         {
                             Console.Write($"{i + 1}.{input}");
-                            if (i < 9)
+                            if (i < 9)                          // vill inte ha ett kommatecken efter den sista utskriften
                                 Console.Write(", ");
                         }
-                        Console.Write(Environment.NewLine);                       
-                        PressAnyKey();
+                        Console.Write(Environment.NewLine);
+                        PressAnyKey();                         
                         return true;
                     }
-                case "3": //3. Det tredje ordet
+                case "3":                                       // 3. Det tredje ordet
                     {
                         Console.WriteLine("Ange en mening som innehåller minst tre ord.");
-                        int antalOrd = 0;                        
-                        string[] input;                       
+                        int antalOrd = 0;
+                        string[] input;
                         do
                         {
-                            input = Util.AskForString("mening").Split(); //Console.ReadLine().Split();
+                            input = Util.AskForString("mening").Split();
                             antalOrd = input.Length;
                             if (antalOrd < 3)
                                 Console.WriteLine("Meningen innehåller färre än 3 ord. Försök igen.");
@@ -79,19 +81,22 @@ namespace Lexicon_Ovn2_Huvudmeny
                         while (antalOrd < 3);
 
                         string thirdWord = input[2];
-                        Console.WriteLine($"Det tredje ordet i meningen är: {thirdWord}");                        
+                        Console.WriteLine($"Det tredje ordet i meningen är: {thirdWord}");
                         PressAnyKey();
                         return true;
                     }
-                case "0":  //0. Avsluta
+                case "0":                                       // 0. Avsluta
                     {
                         return false;
                     }
 
                 default:
-                    Console.WriteLine("Ogiltigt val");
-                    PressAnyKey();           
-                    return true;
+                    {                                           // om användaren matat in något annat än 1,2,3 eller 0
+                        Console.WriteLine("Ogiltigt val");
+                        PressAnyKey();
+                        return true;
+                    }
+                    
             }
         }
         private static void PressAnyKey()
