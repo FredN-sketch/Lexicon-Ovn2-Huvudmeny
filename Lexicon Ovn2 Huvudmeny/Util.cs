@@ -20,7 +20,7 @@ namespace Lexicon_Ovn2_Huvudmeny
 
                 if (string.IsNullOrWhiteSpace(answer))
                 {
-                    Console.WriteLine($"You must enter a valid {prompt}");
+                    Console.WriteLine($"Ange en giltig {prompt}");
                 }
                 else
                 {

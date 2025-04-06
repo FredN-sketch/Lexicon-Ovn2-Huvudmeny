@@ -51,8 +51,8 @@ namespace Lexicon_Ovn2_Huvudmeny
                 case "2": //2. Upprepa tio gånger
                     {
                         Console.Write(Environment.NewLine);                        
-                        Console.Write("Ange den text som skall upprepas: ");
-                        string input = Console.ReadLine();
+                        Console.WriteLine("Ange den text som skall upprepas.");
+                        string input = Util.AskForString("text");//Console.ReadLine();
                         Console.Write(Environment.NewLine);
                         for (int i = 0; i < 10; i++)
                         {
@@ -66,8 +66,18 @@ namespace Lexicon_Ovn2_Huvudmeny
                     }
                 case "3": //3. Det tredje ordet
                     {
-                        Console.Write("Ange en mening som innehåller minst tre ord: ");
-                        string[] input = Console.ReadLine().Split();
+                        Console.WriteLine("Ange en mening som innehåller minst tre ord.");
+                        int antalOrd = 0;                        
+                        string[] input;                       
+                        do
+                        {
+                            input = Util.AskForString("mening").Split(); //Console.ReadLine().Split();
+                            antalOrd = input.Length;
+                            if (antalOrd < 3)
+                                Console.WriteLine("Meningen innehåller färre än 3 ord. Försök igen.");
+                        }
+                        while (antalOrd < 3);
+
                         string thirdWord = input[2];
                         Console.WriteLine($"Det tredje ordet i meningen är: {thirdWord}");                        
                         PressAnyKey();
