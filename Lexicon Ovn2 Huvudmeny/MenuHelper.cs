@@ -103,7 +103,7 @@ namespace Lexicon_Ovn2_Huvudmeny
         {
             Console.Write(Environment.NewLine);
             Console.WriteLine("Tryck på valfri tangent för att återgå till huvudmenyn.");
-            Console.ReadLine();
+            Console.ReadKey();
         }       
     }
 }
