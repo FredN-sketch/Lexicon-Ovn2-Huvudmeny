@@ -11,7 +11,7 @@
             int seniorPrice = 90;
             int standardPrice = 120;
                         
-            if (numberOfPeople == 1)
+            if (numberOfPeople == 1)                    // 1.1 köp biljett till en person
             {
                 string priceLevel;
                 int ticketPrice;
@@ -28,7 +28,6 @@
                     priceLevel = "Pensionärspris";
                     ticketPrice = seniorPrice;
                 }
-
                 else
                 {
                     priceLevel = "Standardpris";
@@ -37,7 +36,7 @@
                 Console.WriteLine($"{priceLevel}: {ticketPrice} kr");
             }
             else
-            {
+            {                                           // 1.2 köp biljetter till ett sällskap
                 int sumTicketPrice = 0;
                 for (int i = 1; i < numberOfPeople + 1; i++)
                 {                  
