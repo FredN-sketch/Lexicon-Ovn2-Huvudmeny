@@ -38,17 +38,19 @@ namespace Lexicon_Ovn2_Huvudmeny
                         Console.Write(Environment.NewLine);
                         if (cinemaChoice == "1")
                         {                                       // 1.1 köp biljett till en person
-                            Cinema.Tickets(1);                  
+                            Cinema.Tickets(1);
                         }
-                        else
-                        {                                       // 1.2 köp biljetter till ett sällskap
-                                                                
+                        else if (cinemaChoice == "2")
+                        {                                       // 1.2 köp biljetter till ett sällskap                                                                
                             Console.WriteLine("Ange antal personer i sällskapet");
                             uint numberOfPeople = Util.AskForUInt("antal");
-                            Cinema.Tickets(numberOfPeople);     
+                            Cinema.Tickets(numberOfPeople);
                         }
+                        else
+                            Console.WriteLine("Ogiltigt val.");
                         PressAnyKey();                          // tryck på valfri tangent för att återgå till huvudmenyn
                         return true;                            // return kan användas istf break i case-sats i en metod
+                                                                //   om inget mer behöver göras efter case-satsen
                     }
                 case "2":                                       // 2. Upprepa tio gånger
                     {
